@@ -53,7 +53,8 @@ class BusApiService
 
         $response = $this->client->request(
             'GET',
-            $this->getRequestUrl(), [
+            $this->getRequestUrl(),
+            [
                 'query' => $this->requestClass->serializeRequest(),
                 'headers' => $this->getRequestHeaders()
             ]
