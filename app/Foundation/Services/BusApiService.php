@@ -9,7 +9,7 @@ use GuzzleHttp\Client;
 /**
  * The BusApiService class.
  *
- * @package
+ * @package App\Foundation\Services
  * @author  Inon Baguio <inonbaguio@gmail.com>
  */
 class BusApiService
