@@ -85,5 +85,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ mix('js/bus/search.js') }}"></script>
 </body>
 </html>
