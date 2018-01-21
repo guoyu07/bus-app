@@ -31,8 +31,7 @@ var Search = (function() {
      * Parses Bust Stop details
      * @param {Object} data
      */
-    function displayDetails(data)
-    {
+    function displayDetails(data) {
         DOM.$busStopTitle.html('Arrival times of Bus stop: <strong>' + data.data.BusStopCode + '</strong>');
         DOM.$stopDetails.html(data.html);
     }
@@ -61,7 +60,6 @@ var Search = (function() {
         cacheDom();
         bindEvents();
     }
-
 
     return {
         init : init,
