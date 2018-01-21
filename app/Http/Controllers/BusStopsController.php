@@ -4,7 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Foundation\Blueprints\Coordinates;
 use App\Foundation\Repositories\BusStopRepository;
+use App\Foundation\Requests\BusArrivals;
+use App\Foundation\Services\BusApiService;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\View\View;
 
 class BusStopsController extends Controller
 {
@@ -12,14 +17,22 @@ class BusStopsController extends Controller
      * @var BusStopRepository
      */
     private $busStopRepository;
+    /**
+     * @var BusApiService
+     */
+    private $busApiService;
 
     /**
      * BusStopsController constructor.
      *
      * @param BusStopRepository $busStopRepository
+     * @param BusApiService $busApiService
      */
-    public function __construct(BusStopRepository $busStopRepository)
-    {
+    public function __construct(
+        BusApiService $busApiService,
+        BusStopRepository $busStopRepository
+    ) {
+        $this->busApiService = $busApiService;
         $this->busStopRepository = $busStopRepository;
     }
 
@@ -74,12 +87,27 @@ class BusStopsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param string $code
+     *
+     * @return JsonResponse|View
      */
-    public function show($id)
+    public function show(string $code)
     {
-        //
+        request()->merge([
+            'code' => $code
+        ]);
+
+        $response = $this->busApiService->getData(BusArrivals::class);
+
+        if (request()->wantsJson()) {
+            return response()->json([
+                'data' => $response,
+                'html' => view('stops.partials.details', compact('response'))->render()
+            ]);
+        }
+
+
+        return view('stops.partials.details', compact('response'));
     }
 
     /**

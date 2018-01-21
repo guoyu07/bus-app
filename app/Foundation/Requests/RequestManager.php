@@ -36,5 +36,4 @@ class RequestManager
     {
         return new $requestClass($this->request->all());
     }
-
 }

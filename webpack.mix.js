@@ -14,7 +14,8 @@ let mix = require('laravel-mix');
 mix.js('resources/assets/js/app.js', 'public/js')
     .sass('resources/assets/sass/app.scss', 'public/css');
 
-mix.babel([
-    'resources/assets/js/bus/search/*.js'
+mix.scripts([
+    'resources/assets/js/bus/search/*',
+    'resources/assets/js/bus/utilities.js'
 ], 'public/js/bus/search.js')
     .version();

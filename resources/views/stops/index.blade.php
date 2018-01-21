@@ -16,6 +16,7 @@
                             <div class="col-md-10">
                                 <div class="form-group">
                                     <input type="text" placeholder="Search for road name: Labrador park, Farrer Road, Marina Bay.." name="q" class="form-control">
+                                    <input type="hidden" name="c" value="1.3171225, 103.80729249999999">
                                 </div>
                             </div>
                             <div class="col-md-2">
@@ -48,17 +49,37 @@
                                 </a>
                             </div>
                         </div>
-                        {{--<div class="panel-body">--}}
-                            {{--<div class="body">--}}
-                                {{--Id accusantium rerum ut et. Ea tenetur ut rerum neque. Quisquam qui sint quo non. Iste sit amet at.--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
                         <div class="panel-footer">
-                            0 Visits
+                            <a
+                               href="#"
+                               data-toggle="modal"
+                               data-target="#myModal"
+                               class="viewArrivals"
+                               data-code="{{ $stop->code }}"
+                            >
+                                View Arrival Time
+                            </a>
                         </div>
                     </div>
-
                 @endforeach
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="busStopTitle"...loading</h4>
+                </div>
+                <div class="modal-body" id="stopDetails">
+                    <i>..fetching</i>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>

@@ -54,7 +54,7 @@ class BusStopRepository extends AbstractRepository
             ->having('distance', '<=', self::DEFAULT_RADIUS);
 
         if (!empty($stopName)) {
-            $query->where('d.road_name', 'like', sprintf('%%s%',$stopName));
+//            $query->where('d.road_name', 'like', sprintf('%%s%',$stopName));
         }
 
         return $query
