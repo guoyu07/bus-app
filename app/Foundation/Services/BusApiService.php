@@ -43,10 +43,11 @@ class BusApiService
 
     /**
      * @param string $requestClass
+     * @param bool $asArray
      *
-     * @return string
+     * @return array|string
      */
-    public function getData(string $requestClass) : string
+    public function getData(string $requestClass, bool $asArray = true)
     {
         $this->requestClass = $this->requestManager->build($requestClass);
 
@@ -57,6 +58,10 @@ class BusApiService
                 'headers' => $this->getRequestHeaders()
             ]
         );
+
+        if ($asArray === true) {
+            return json_decode($response->getBody()->getContents(), true);
+        }
 
         return $response->getBody()->getContents();
     }
