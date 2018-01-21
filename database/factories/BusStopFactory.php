@@ -13,12 +13,14 @@
 */
 
 
-$factory->define(App\Models\User::class, function (Faker\Generator $faker) {
+$factory->define(\App\Models\BusStop::class, function (Faker\Generator $faker) {
+    $faker->addProvider(new Faker\Provider\en_SG\Address($faker));
 
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
-        'remember_token' => str_random(10),
+        'code' => $faker->unique()->numberBetween(0,999),
+        'road_name' => $faker->streetName,
+        'description' => $faker->address,
+        'latitude' => $faker->latitude,
+        'longitude' => $faker->longitude
     ];
 });
