@@ -2,10 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Foundation\Blueprints\Coordinates;
+use App\Foundation\Repositories\BusStopRepository;
 use Illuminate\Http\Request;
 
 class BusStopsController extends Controller
 {
+    /**
+     * @var BusStopRepository
+     */
+    private $busStopRepository;
+
+    /**
+     * BusStopsController constructor.
+     *
+     * @param BusStopRepository $busStopRepository
+     */
+    public function __construct(BusStopRepository $busStopRepository)
+    {
+        $this->busStopRepository = $busStopRepository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +30,24 @@ class BusStopsController extends Controller
      */
     public function index()
     {
+        $stops = [];
+        $coordinatesParam = $this->getCoordinates();
 
+        if (empty($coordinatesParam)) {
+            return view('stops.index', compact('stops'));
+        }
+
+        $coordinates = new Coordinates(
+            $coordinatesParam[0],
+            $coordinatesParam[1]
+        );
+
+        $stops = $this->busStopRepository->getBusStopsByRadius(
+            $coordinates,
+            request('q', '')
+        );
+
+        return view('stops.index', compact('stops'));
     }
 
     /**
@@ -81,4 +115,21 @@ class BusStopsController extends Controller
     {
         //
     }
+
+    #---------------------------------------------------------------------------------------------------
+    # Private functions
+    #---------------------------------------------------------------------------------------------------
+
+    /**
+     * @return array
+     */
+    private function getCoordinates() : array
+    {
+        if (empty(request('c'))) {
+            return [];
+        }
+
+        return explode(',', request('c'));
+    }
+
 }

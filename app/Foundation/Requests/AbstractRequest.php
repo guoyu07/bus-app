@@ -20,7 +20,7 @@ abstract class AbstractRequest implements BlueprintRequest
      *
      * @param array $payload
      */
-    public function __construct(array $payload)
+    public function __construct(array $payload = [])
     {
         $this->payload = $payload;
 

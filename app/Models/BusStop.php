@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class BusStop extends Model
 {
+    const DEFAULT_RADIUS = 5;
     /**
      * @var string
      */
