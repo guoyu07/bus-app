@@ -49,3 +49,4 @@ RoadMap
     - Parking Availability
     - Traffic Update
     - ReactJS
+    - Docker build
