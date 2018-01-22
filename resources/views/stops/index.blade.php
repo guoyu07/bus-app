@@ -57,7 +57,7 @@
                                 </div>
                                 <a href="javascript:void(0)">
                                     <h4>
-                                        {{ number_format($stop->distance, 2) }} km
+                                        {{ number_format($stop->distance, 2) }} km.
                                     </h4>
                                 </a>
                             </div>

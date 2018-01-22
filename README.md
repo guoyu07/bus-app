@@ -36,3 +36,12 @@ Build/Install
 Troubleshooting
 ----------
 - `navigator.geolocation` is only enabled in `https` [details](https://sites.google.com/a/chromium.org/dev/Home/chromium-security/deprecating-powerful-features-on-insecure-origins), kindly enable ssl
+
+
+RoadMap
+----------
+**v2.0**
+
+- Intended not to include "Add Bus Stop" module since this project uses MyTransportSG API already. Will create this in v2.0 :)de "Add Bus Stop" module since this project uses MyTransportSG API already. Will create this in v2.0 :)
+- Feature/Unit testing
+- Google Maps integration
