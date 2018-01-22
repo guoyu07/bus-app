@@ -20,7 +20,7 @@ Build/Install
 
 2). `composer install`
 
-3). `yarn install` Kindly use "npm install" for VMs hosted under windows machine. Yarn has a known issue for VMs hosted in windows.
+3). `yarn install` then `yarn run dev` Kindly use "npm install" for VMs hosted under windows machine. Yarn has a known issue for VMs hosted in windows.
 
 4). Copy `.env.example` into a `.env` file. I've included my own API key - I recommend to create your own [here](https://www.mytransport.sg/content/mytransport/home/dataMall.html) :-P
 

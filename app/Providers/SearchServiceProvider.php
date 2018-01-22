@@ -10,11 +10,11 @@ use Illuminate\Support\ServiceProvider;
 class SearchServiceProvider extends ServiceProvider
 {
     /**
-     * Bootstrap the application services.
+     * Register the application services.
      *
      * @return void
      */
-    public function boot()
+    public function register()
     {
         $this->app->singleton(SearchService::class, function () {
             return new SearchService(
@@ -22,15 +22,5 @@ class SearchServiceProvider extends ServiceProvider
                 app(BusStopRepository::class)
             );
         });
-    }
-
-    /**
-     * Register the application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        //
     }
 }
