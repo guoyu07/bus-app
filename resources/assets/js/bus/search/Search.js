@@ -19,6 +19,8 @@ var Search = (function() {
         DOM.$busStopTitle = $('#busStopTitle');
         DOM.$stopDetails = $('#stopDetails');
         DOM.$userCoordinates = $('#usersCoordinates');
+        DOM.$busSearchForm = $('#busSearchForm');
+        DOM.$busNearMe = $('#nearMe');
     }
 
     /**
@@ -26,6 +28,7 @@ var Search = (function() {
      */
     function bindEvents() {
         DOM.$viewArrivals.click(handleClick);
+        DOM.$busNearMe.click(handleNearMeSearch);
     }
 
     /**
@@ -56,11 +59,14 @@ var Search = (function() {
 
     /**
      * Function that gets user coordinates
+     *
+     * @param {Object} event
      */
-    function setUsersLocation()
+    function handleNearMeSearch(event)
     {
         Utilities.getLocation(function(data) {
             DOM.$userCoordinates.val(data.coords.latitude + ',' + data.coords.longitude);
+            DOM.$busSearchForm.submit();
         });
     }
 
@@ -68,7 +74,6 @@ var Search = (function() {
      *  The init method
      */
     function init() {
-        setUsersLocation();
         cacheDom();
         bindEvents();
     }

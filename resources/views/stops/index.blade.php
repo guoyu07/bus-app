@@ -12,18 +12,23 @@
                     </div>
 
                     <div class="panel-body">
-                        <form method="GET" action="#">
-                            <div class="col-md-10">
+                        <form method="GET" action="#" id="busSearchForm">
+                            <div class="col-md-8">
                                 <div class="form-group">
-                                    <input type="text" placeholder="Search for road name: Labrador park, Farrer Road, Marina Bay.." name="q" class="form-control">
+                                    <input type="text" placeholder="Search for road name: Labrador park, Farrer Road, Marina Bay.." name="q" class="form-control" id="stopSearchField">
                                     <input type="hidden" name="c" id="usersCoordinates" value="">
                                 </div>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-4">
                                 <div class="form-group">
-                                    <button class="btn btn-primary" type="submit" style="width:100%">Search</button>
+                                    <a href="javascript:void(0)" class="btn btn-success"  id="nearMe">
+                                        <span class="glyphicon glyphicon-map-marker"></span>
+                                    Near Me
+                                    </a>
+                                    <button class="btn btn-primary" type="button" style="width:60%">Search</button>
                                 </div>
                             </div>
+
                         </form>
                     </div>
                 </div>
