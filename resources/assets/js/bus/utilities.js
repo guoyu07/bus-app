@@ -10,7 +10,7 @@ var Utilities = (function() {
         /**
          * GET Ajax helper function
          *
-         * @param {String| url
+         * @param {String} url
          */
         getData: function(url) {
             return $.ajax({
