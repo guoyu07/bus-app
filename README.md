@@ -23,11 +23,13 @@ Build/Install
 
 4). Copy `.env.example` into a `.env` file. I've included my own API key - I recommend to create your own [here](https://www.mytransport.sg/content/mytransport/home/dataMall.html) :-P
 
-5). `php artisan migrate`
+5). Create `bus_service` database
 
-6). `php artisan db:seed` will call `BusStopTableSeeder` that will make an API and get 500 bus stops from [MyTransportSG API](https://www.mytransport.sg/content/mytransport/home/dataMall.html)
+6). `php artisan migrate`
 
-7). `php artisan serve` Though highly recommend to setup proper VM instead. Host it in `laravel/homestead`, `Vagrant`
+7). `php artisan db:seed` will call `BusStopTableSeeder` that will make an API and get 500 bus stops from [MyTransportSG API](https://www.mytransport.sg/content/mytransport/home/dataMall.html)
+
+8). `php artisan serve` Though highly recommend to setup proper VM instead. Host it in `laravel/homestead`, `Vagrant`
 
 
 
