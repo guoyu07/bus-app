@@ -45,7 +45,6 @@ class BusStopsController extends Controller
         }
 
         if (!empty(request('c'))) {
-
             $stops = $this->searchService->searchNearMe();
 
             return view('stops.index', compact('stops'));

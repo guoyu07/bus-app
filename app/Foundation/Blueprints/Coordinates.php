@@ -63,5 +63,4 @@ class Coordinates
     {
         $this->longitude = $longitude;
     }
-
 }
