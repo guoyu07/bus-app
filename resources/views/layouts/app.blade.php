@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Bus Stops Search v1.0</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -20,6 +20,9 @@
         .mr-1 { margin-right: 1em; }
         .ml-a { margin-left: auto; }
         .ais-highlight > em { background: yellow; font-style: normal; }
+        .bs-callout-info {
+            border-left-color: #1b809e;
+        }
     </style>
 </head>
 <body>
@@ -38,7 +41,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        Bus Stops Search v1.0
                     </a>
                 </div>
 

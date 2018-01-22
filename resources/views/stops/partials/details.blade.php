@@ -19,19 +19,19 @@ use Carbon\Carbon;
             </thead>
             <tbody>
                 <tr>
-                    <th>{{ \App\Foundation\DateUtility::parse($details['NextBus']['EstimatedArrival'])->toDayDateTimeString() ?? '--' }}</th>
+                    <th>{{ \App\Foundation\Utilities\DateUtility::parse($details['NextBus']['EstimatedArrival'])->toDayDateTimeString() ?? '--' }}</th>
                     <th>{{ $details['NextBus']['DestinationCode'] }}</th>
-                    <th>{{ \App\Foundation\DateUtility::parse($details['NextBus']['EstimatedArrival'])->diffForHumans() ?? '--' }}</th>
+                    <th>{{ \App\Foundation\Utilities\DateUtility::parse($details['NextBus']['EstimatedArrival'])->diffForHumans() ?? '--' }}</th>
                 </tr>
                 <tr>
-                    <th>{{ \App\Foundation\DateUtility::parse($details['NextBus2']['EstimatedArrival'])->toDayDateTimeString() ?? '--' }}</th>
+                    <th>{{ \App\Foundation\Utilities\DateUtility::parse($details['NextBus2']['EstimatedArrival'])->toDayDateTimeString() ?? '--' }}</th>
                     <th>{{ $details['NextBus2']['DestinationCode'] }}</th>
-                    <th>{{ \App\Foundation\DateUtility::parse($details['NextBus2']['EstimatedArrival'])->diffForHumans() ?? '--' }}</th>
+                    <th>{{ \App\Foundation\Utilities\DateUtility::parse($details['NextBus2']['EstimatedArrival'])->diffForHumans() ?? '--' }}</th>
                 </tr>
                 <tr>
-                    <th>{{ \App\Foundation\DateUtility::parse($details['NextBus3']['EstimatedArrival'])->toDayDateTimeString() ?? '--' }}</th>
+                    <th>{{ \App\Foundation\Utilities\DateUtility::parse($details['NextBus3']['EstimatedArrival'])->toDayDateTimeString() ?? '--' }}</th>
                     <th>{{ $details['NextBus3']['DestinationCode'] }}</th>
-                    <th>{{ \App\Foundation\DateUtility::parse($details['NextBus3']['EstimatedArrival'])->diffForHumans() ?? '--' }}</th>
+                    <th>{{ \App\Foundation\Utilities\DateUtility::parse($details['NextBus3']['EstimatedArrival'])->diffForHumans() ?? '--' }}</th>
                 </tr>
             </tbody>
         </table>

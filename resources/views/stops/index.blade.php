@@ -28,8 +28,14 @@
                                     <button class="btn btn-primary" type="button" style="width:60%">Search</button>
                                 </div>
                             </div>
-
                         </form>
+                        <h4>
+                            @if(!empty(request('q')))
+                                <strong>Bus Stops near <i>"{{ ucwords(request('q')) }}"</strong></i>
+                            @elseif((!empty(request('c'))))
+                                <strong><i>Stops nearby you within 5km..</i></strong>
+                            @endif
+                        </h4>
                     </div>
                 </div>
 
@@ -50,7 +56,9 @@
                                     </h5>
                                 </div>
                                 <a href="javascript:void(0)">
-                                   {{ number_format($stop->distance, 2) }} mi
+                                    <h4>
+                                        {{ number_format($stop->distance, 2) }} km
+                                    </h4>
                                 </a>
                             </div>
                         </div>
