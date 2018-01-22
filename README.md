@@ -27,7 +27,7 @@ Build/Install
 
 6). `php artisan db:seed` will call `BusStopTableSeeder` that will make an API and get 500 bus stops from [MyTransportSG API](https://www.mytransport.sg/content/mytransport/home/dataMall.html)
 
-6). `php artisan serve` Though highly recommend to setup proper VM instead. Host it in `laravel/homestead`, `Vagrant`
+7). `php artisan serve` Though highly recommend to setup proper VM instead. Host it in `laravel/homestead`, `Vagrant`
 
 
 
