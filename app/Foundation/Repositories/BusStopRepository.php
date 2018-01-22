@@ -41,31 +41,29 @@ class BusStopRepository extends AbstractRepository
             ->first();
     }
 
+
     /**
      * @param Coordinates $coordinates
-     * @param string $stopName
      *
      * @return BusStop|null
      */
     public function getBusStopsByRadius(Coordinates $coordinates)
     {
-        $query = $this->model->where('deleted_at', null)
-            ->selectRaw(sprintf(
-                'code,
-                road_name,
-                description,
-                latitude,
-                longitude,
-                (((ACOS(SIN(( %s * PI() / 180)) * SIN((latitude * PI() / 180)) + COS(( %s  * PI() / 180)) * COS((latitude * PI() / 180)) * COS((( %s - longitude) * PI() / 180)))) * 180 / PI()) * 60 * 1.1515 * 1.609344) AS distance',
-                $coordinates->getLatitude(),
-                $coordinates->getLatitude(),
-                $coordinates->getLongitude()
-            ))
-            ->having('distance', '<=', self::DEFAULT_RADIUS);
-
-        return $query
-            ->orderBy('distance', 'ASC')
-            ->limit(10)
-            ->get();
+        return $this->model->where('deleted_at', null)
+                ->selectRaw(sprintf(
+                    'code,
+                    road_name,
+                    description,
+                    latitude,
+                    longitude,
+                    (((ACOS(SIN(( %s * PI() / 180)) * SIN((latitude * PI() / 180)) + COS(( %s  * PI() / 180)) * COS((latitude * PI() / 180)) * COS((( %s - longitude) * PI() / 180)))) * 180 / PI()) * 60 * 1.1515 * 1.609344) AS distance',
+                    $coordinates->getLatitude(),
+                    $coordinates->getLatitude(),
+                    $coordinates->getLongitude()
+                ))
+                ->having('distance', '<=', self::DEFAULT_RADIUS)
+                ->orderBy('distance', 'ASC')
+                ->limit(10)
+                ->get();
     }
 }
