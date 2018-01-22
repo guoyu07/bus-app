@@ -33,8 +33,6 @@ Build/Install
 8). `php artisan serve` Though highly recommend to setup proper VM instead. Host it in `laravel/homestead`, `Vagrant`
 
 
-
-
 Troubleshooting
 ----------
 - `navigator.geolocation` is only enabled in `https` [details](https://sites.google.com/a/chromium.org/dev/Home/chromium-security/deprecating-powerful-features-on-insecure-origins), kindly enable ssl
