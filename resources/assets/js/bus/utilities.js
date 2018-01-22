@@ -11,6 +11,8 @@ var Utilities = (function() {
          * GET Ajax helper function
          *
          * @param {String} url
+         *
+         * @return Object
          */
         getData: function(url) {
             return $.ajax({
