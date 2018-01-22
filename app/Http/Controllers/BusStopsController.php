@@ -18,15 +18,21 @@ class BusStopsController extends Controller
      * @var SearchService
      */
     private $searchService;
+    /**
+     * @var BusApiService
+     */
+    private $busApiService;
 
     /**
      * BusStopsController constructor.
      *
      * @param SearchService $searchService
+     * @param BusApiService $busApiService
      */
-    public function __construct(SearchService $searchService)
+    public function __construct(SearchService $searchService, BusApiService $busApiService)
     {
         $this->searchService = $searchService;
+        $this->busApiService = $busApiService;
     }
 
     /**
