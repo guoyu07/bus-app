@@ -2,14 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Foundation\Blueprints\Coordinates;
-use App\Foundation\Repositories\BusStopRepository;
 use App\Foundation\Requests\BusArrivals;
 use App\Foundation\Services\BusApiService;
 use App\Foundation\Services\SearchService;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\View\View;
 
 class BusStopsController extends Controller
@@ -18,7 +14,7 @@ class BusStopsController extends Controller
      * @var SearchService
      */
     private $searchService;
-    
+
     /**
      * @var BusApiService
      */
