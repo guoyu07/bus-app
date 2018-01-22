@@ -1,6 +1,6 @@
 # Bus Stop Search v1.0
 
-![alt text](https://raw.githubusercontent.com/inon/bus-app/master/public/image/demo.gif?v=20180122)
+![alt text](https://raw.githubusercontent.com/inon/bus-app/master/public/image/demo.gif?v=20180123)
 
 Features
 ----------
