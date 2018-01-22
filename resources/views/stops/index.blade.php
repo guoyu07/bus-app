@@ -25,7 +25,7 @@
                                         <span class="glyphicon glyphicon-map-marker"></span>
                                     Near Me
                                     </a>
-                                    <button class="btn btn-primary" type="button" style="width:60%">Search</button>
+                                    <button class="btn btn-primary" type="submit" style="width:60%">Search</button>
                                 </div>
                             </div>
                         </form>
