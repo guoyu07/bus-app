@@ -1,6 +1,6 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
+    "name": "bus-app",
+    "description": "Bus Stops Search",
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
