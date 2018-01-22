@@ -30,7 +30,7 @@ class BusStopRepository extends AbstractRepository
     }
 
     /**
-     * @param string $stopName
+     * @param string $roadName
      *
      * @return BusStop|null
      */
