@@ -41,9 +41,9 @@ class Coordinates
     }
 
     /**
-     * @param mixed $latitude
+     * @param float $latitude
      */
-    public function setLatitude($latitude): void
+    public function setLatitude(float $latitude)
     {
         $this->latitude = $latitude;
     }
@@ -57,9 +57,9 @@ class Coordinates
     }
 
     /**
-     * @param mixed $longitude
+     * @param float $longitude
      */
-    public function setLongitude($longitude): void
+    public function setLongitude(float $longitude)
     {
         $this->longitude = $longitude;
     }
