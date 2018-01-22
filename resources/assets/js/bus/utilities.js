@@ -24,13 +24,16 @@ var Utilities = (function() {
 
         /**
          * Function that retrieves users coordinates
+         *
+         * @return void
          */
         getLocation : function(handler) {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(handler);
-            } else {
-                alert('Geolocation is not supported by this browser.');
+                return;
             }
+
+            alert('Geolocation is not supported by this browser.');
         }
     };
 }());
