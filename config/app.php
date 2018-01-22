@@ -176,7 +176,8 @@ return [
         /**
          * Custom Service Providers
          */
-        App\Providers\MyTransportSGProvider::class
+        App\Providers\MyTransportSGProvider::class,
+        App\Providers\SearchServiceProvider::class
     ],
 
     /*

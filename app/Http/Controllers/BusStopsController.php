@@ -6,6 +6,7 @@ use App\Foundation\Blueprints\Coordinates;
 use App\Foundation\Repositories\BusStopRepository;
 use App\Foundation\Requests\BusArrivals;
 use App\Foundation\Services\BusApiService;
+use App\Foundation\Services\SearchService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -14,26 +15,18 @@ use Illuminate\View\View;
 class BusStopsController extends Controller
 {
     /**
-     * @var BusStopRepository
+     * @var SearchService
      */
-    private $busStopRepository;
-    /**
-     * @var BusApiService
-     */
-    private $busApiService;
+    private $searchService;
 
     /**
      * BusStopsController constructor.
      *
-     * @param BusStopRepository $busStopRepository
-     * @param BusApiService $busApiService
+     * @param SearchService $searchService
      */
-    public function __construct(
-        BusApiService $busApiService,
-        BusStopRepository $busStopRepository
-    ) {
-        $this->busApiService = $busApiService;
-        $this->busStopRepository = $busStopRepository;
+    public function __construct(SearchService $searchService)
+    {
+        $this->searchService = $searchService;
     }
 
     /**
@@ -46,32 +39,14 @@ class BusStopsController extends Controller
         $stops = [];
 
         if (!empty(request('q'))) {
-            $searchResult = $this->busStopRepository->getBusStopByname(request('q', ''));
-
-            if (empty($searchResult)) {
-                return view('stops.index', compact('stops'));
-            }
-
-            $coordinates = new Coordinates(
-                $searchResult->latitude,
-                $searchResult->longitude
-            );
-
-            $stops = $this->busStopRepository->getBusStopsByRadius($coordinates);
+            $stops = $this->searchService->searchByName(request('q', ''));
 
             return view('stops.index', compact('stops'));
         }
 
         if (!empty(request('c'))) {
 
-            $coordinatesParam = $this->getCoordinates();
-
-            $coordinates = new Coordinates(
-                $coordinatesParam[0],
-                $coordinatesParam[1]
-            );
-
-            $stops = $this->busStopRepository->getBusStopsByRadius($coordinates);
+            $stops = $this->searchService->searchNearMe();
 
             return view('stops.index', compact('stops'));
         }
@@ -159,21 +134,4 @@ class BusStopsController extends Controller
     {
         //
     }
-
-    #---------------------------------------------------------------------------------------------------
-    # Private functions
-    #---------------------------------------------------------------------------------------------------
-
-    /**
-     * @return array
-     */
-    private function getCoordinates() : array
-    {
-        if (empty(request('c'))) {
-            return [];
-        }
-
-        return explode(',', request('c'));
-    }
-
 }
