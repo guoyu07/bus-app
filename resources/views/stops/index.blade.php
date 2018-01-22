@@ -15,7 +15,7 @@
                         <form method="GET" action="#" id="busSearchForm">
                             <div class="col-md-8">
                                 <div class="form-group">
-                                    <input type="text" placeholder="Search for road name: Labrador park, Farrer Road, Marina Bay.." name="q" class="form-control" id="stopSearchField">
+                                    <input type="text" placeholder="Search for road name: Woodlands, Farrer Road, Marina Bay.." name="q" class="form-control" id="stopSearchField">
                                     <input type="hidden" name="c" id="usersCoordinates" value="">
                                 </div>
                             </div>
@@ -38,13 +38,13 @@
                         <div class="panel-heading">
                             <div class="level">
                                 <div class="flex">
-                                    <h4>
+                                    <h3>
                                         <a href="#">
                                             <strong>
                                                 {{ $stop->road_name }}
                                             </strong>
                                         </a>
-                                    </h4>
+                                    </h3>
                                     <h5>
                                         {{ $stop->description }}
                                     </h5>
@@ -62,7 +62,7 @@
                                class="viewArrivals"
                                data-code="{{ $stop->code }}"
                             >
-                                View Arrival Time
+                                View Arrival Times
                             </a>
                         </div>
                     </div>
@@ -80,7 +80,7 @@
                     <h4 class="modal-title" id="busStopTitle"...loading</h4>
                 </div>
                 <div class="modal-body" id="stopDetails">
-                    <i>..fetching</i>
+                    <strong class="text-center">..fetching</strong>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

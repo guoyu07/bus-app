@@ -44,21 +44,37 @@ class BusStopsController extends Controller
     public function index()
     {
         $stops = [];
-        $coordinatesParam = $this->getCoordinates();
 
-        if (empty($coordinatesParam)) {
+        if (!empty(request('q'))) {
+            $searchResult = $this->busStopRepository->getBusStopByname(request('q', ''));
+
+            if (empty($searchResult)) {
+                return view('stops.index', compact('stops'));
+            }
+
+            $coordinates = new Coordinates(
+                $searchResult->latitude,
+                $searchResult->longitude
+            );
+
+            $stops = $this->busStopRepository->getBusStopsByRadius($coordinates);
+
             return view('stops.index', compact('stops'));
         }
 
-        $coordinates = new Coordinates(
-            $coordinatesParam[0],
-            $coordinatesParam[1]
-        );
+        if (!empty(request('c'))) {
 
-        $stops = $this->busStopRepository->getBusStopsByRadius(
-            $coordinates,
-            request('q', '')
-        );
+            $coordinatesParam = $this->getCoordinates();
+
+            $coordinates = new Coordinates(
+                $coordinatesParam[0],
+                $coordinatesParam[1]
+            );
+
+            $stops = $this->busStopRepository->getBusStopsByRadius($coordinates);
+
+            return view('stops.index', compact('stops'));
+        }
 
         return view('stops.index', compact('stops'));
     }

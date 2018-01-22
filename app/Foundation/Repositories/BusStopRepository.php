@@ -30,17 +30,28 @@ class BusStopRepository extends AbstractRepository
     }
 
     /**
+     * @param string $stopName
+     *
+     * @return BusStop|null
+     */
+    public function getBusStopByname(string $roadName)
+    {
+        return $this->model->where('deleted_at', null)
+            ->where('road_name', 'like', '%' . $roadName . '%')
+            ->first();
+    }
+
+    /**
      * @param Coordinates $coordinates
      * @param string $stopName
      *
      * @return BusStop|null
      */
-    public function getBusStopsByRadius(Coordinates $coordinates, string $stopName = '')
+    public function getBusStopsByRadius(Coordinates $coordinates)
     {
         $query = $this->model->where('deleted_at', null)
-            ->selectRaw(
-                sprintf(
-                    'code,
+            ->selectRaw(sprintf(
+                'code,
                 road_name,
                 description,
                 latitude,
@@ -51,10 +62,6 @@ class BusStopRepository extends AbstractRepository
                 $coordinates->getLongitude()
             ))
             ->having('distance', '<=', self::DEFAULT_RADIUS);
-
-        if (!empty($stopName)) {
-//            $query->where('road_name', 'like', sprintf('%%s%',$stopName));
-        }
 
         return $query
             ->orderBy('distance', 'ASC')

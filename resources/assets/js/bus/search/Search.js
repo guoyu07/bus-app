@@ -36,6 +36,7 @@ var Search = (function() {
      * @param {Object} data
      */
     function displayDetails(data) {
+        DOM.$stopDetails.html('');
         DOM.$busStopTitle.html('Arrival times of Bus stop: <strong>' + data.data.BusStopCode + '</strong>');
         DOM.$stopDetails.html(data.html);
     }
@@ -46,6 +47,7 @@ var Search = (function() {
      * @param {Object} event
      */
     function handleClick(event) {
+        DOM.$stopDetails.html('<strong class="text-center">..fetching</strong>');
         var url = '/bus-stops/' + this.getAttribute('data-code');
 
         Utilities
