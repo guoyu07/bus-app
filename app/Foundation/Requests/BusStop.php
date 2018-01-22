@@ -26,7 +26,7 @@ class BusStop extends AbstractRequest
     /**
      * @param string $roadName
      */
-    public function setRoadName(string $roadName): void
+    public function setRoadName(string $roadName)
     {
         $this->roadName = $roadName;
     }
