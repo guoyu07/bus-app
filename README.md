@@ -9,7 +9,7 @@ This project uses [MyTransportSG](https://www.mytransport.sg/content/mytransport
 
 **Feature #1:** "Near Me" - returns bus stops near you within 5km from the coordinates retrieved from `navigator.geolocation`
 
-**Feature #2.** "Road NameSearch" - returns bus stops based on the road/place specified
+**Feature #2.** "Road Name Search" - returns bus stops based on the road/place specified
 
 
 
