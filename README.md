@@ -45,6 +45,6 @@ RoadMap
 - Intended not to include "Add Bus Stop" module since this project uses MyTransportSG API already. Will create this in v2.0 :)
 - Feature/Unit testing
 - Google Maps integration
-- Additional MyTransportSG API Features
+- Additional **MyTransportSG API** Features
     - Parking Availability
     - Traffic Update
