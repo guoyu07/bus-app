@@ -18,6 +18,7 @@ var Search = (function() {
         DOM.$viewArrivals = $('.viewArrivals');
         DOM.$busStopTitle = $('#busStopTitle');
         DOM.$stopDetails = $('#stopDetails');
+        DOM.$userCoordinates = $('#usersCoordinates');
     }
 
     /**
@@ -54,9 +55,20 @@ var Search = (function() {
     }
 
     /**
+     * Function that gets user coordinates
+     */
+    function setUsersLocation()
+    {
+        Utilities.getLocation(function(data) {
+            DOM.$userCoordinates.val(data.coords.latitude + ',' + data.coords.longitude);
+        });
+    }
+
+    /**
      *  The init method
      */
     function init() {
+        setUsersLocation();
         cacheDom();
         bindEvents();
     }

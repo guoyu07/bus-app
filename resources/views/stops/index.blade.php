@@ -16,7 +16,7 @@
                             <div class="col-md-10">
                                 <div class="form-group">
                                     <input type="text" placeholder="Search for road name: Labrador park, Farrer Road, Marina Bay.." name="q" class="form-control">
-                                    <input type="hidden" name="c" value="1.3171225, 103.80729249999999">
+                                    <input type="hidden" name="c" id="usersCoordinates" value="">
                                 </div>
                             </div>
                             <div class="col-md-2">

@@ -12,13 +12,23 @@ var Utilities = (function() {
          *
          * @param {String| url
          */
-        getData: function(url)
-        {
+        getData: function(url) {
             return $.ajax({
                 type: 'GET',
                 url: url,
                 dataType: 'json'
             });
+        },
+
+        /**
+         * Function that retrieves users coordinates
+         */
+        getLocation : function(handler) {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(handler);
+            } else {
+                alert('Geolocation is not supported by this browser.');
+            }
         }
     };
 }());

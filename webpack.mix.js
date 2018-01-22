@@ -16,6 +16,7 @@ mix.js('resources/assets/js/app.js', 'public/js')
 
 mix.scripts([
     'resources/assets/js/bus/search/*',
-    'resources/assets/js/bus/utilities.js'
+    'resources/assets/js/bus/utilities.js',
+    'resources/assets/js/bus/app.js'
 ], 'public/js/bus/search.js')
     .version();
