@@ -18,6 +18,7 @@ class BusStopsController extends Controller
      * @var SearchService
      */
     private $searchService;
+    
     /**
      * @var BusApiService
      */
